@@ -21,7 +21,7 @@ The goal is to demonstrate how log-structured KV stores work internally:
 ---
 
 ## How Bitcask Works (Simple Explanation)
-Bitcask is based on 4 simple mechanisms:
+Bitcask is based on 4 simple mechanisms :
 
 ### 1. Append-Only Writes
 Every write is appended to the end of a log file.  
