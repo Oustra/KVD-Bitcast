@@ -1,13 +1,21 @@
 # Bitcask Key-Value Store (Python)
 
-This project is a minimal working implementation of a Bitcask-style
-key/value store in Python.  
-The goal is to demonstrate how log-structured KV stores work internally:
-- Append-only data files
-- In-memory hash index
-- Simple recovery from data files
-- Fast writes & reads
-- Optional compaction to clean old data
+This project implements a minimal working key/value (KV) store in Python, inspired by the 
+design described in Designing Data-Intensive Applications. 
+Bitcask is a log-structured key/value storage engine that focuses on high write throughput, 
+simple indexing, and efficient reads. It stores all writes as append-only records in files on disk 
+while keeping an in-memory hash table mapping keys to file offsets.  
+This allows reads to require only a single disk seek, while sequential writes remain extremely 
+fast. We implemented Bitcask from scratch in Python, creating our own file format, in-memory 
+index, and compaction logic. We chose Bitcask because its design is simple, yet it illustrates the 
+core mechanisms of KV stores fast ingestion, efficient lookups, crash recovery, and compaction 
+making it an ideal model for a learning project. 
+
+The goals of this project are to explore: 
+- How to optimally lay out KV-store data on disk 
+- Fast ingestion using append-only logs 
+- Efficient key-based lookups 
+- Crash recovery and compaction
 
 ---
 
